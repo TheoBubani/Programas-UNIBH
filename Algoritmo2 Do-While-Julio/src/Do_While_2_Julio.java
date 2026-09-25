@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Main {
+public class Do_While_2_Julio {
     public static void main(String[] args) {
         Scanner leitor = new Scanner(System.in);
 
