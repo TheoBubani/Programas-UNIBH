@@ -337,24 +337,19 @@ public class ListaVetores_Otaviano {
 
     private static void Algoritmo09(Scanner leitor) {
 
-        int qntdRecibos = 0;
-
-        System.out.print("Insira a quantidade de recibos para imprimir: ");
-        qntdRecibos = leitor.nextInt();
+        System.out.print("Digite a quantidade de recibos: ");
+        int qntdRecibos = leitor.nextInt();
 
         int[] recibos = new int[qntdRecibos];
+        int contador = 1;
 
-        for (int contador = 0; contador < recibos.length; contador++) {
+        while (contador <= recibos.length) {
 
-            recibos[contador] = contador + 1;
+            recibos[contador - 1] = contador;
 
-        }
+            System.out.println("Recibo número: " + recibos[contador - 1]);
 
-        System.out.println("=== RECIBOS ===");
-
-        for (int contador = 0; contador < recibos.length; contador++) {
-
-            System.out.println(recibos[contador]);
+            contador++;
 
         }
 
@@ -469,28 +464,22 @@ public class ListaVetores_Otaviano {
 
     private static void Algoritmo14(Scanner leitor) {
 
-        final int TEMPO = 5;
-        int etapas = 0;
-        int tempoMaximo = 0;
-
         System.out.print("Insira o número de etapas da produção: ");
-        etapas = leitor.nextInt();
+        int etapas = leitor.nextInt();
 
         int[] temposEtapas = new int[etapas];
+        int tempoTotal = 0;
 
         for (int contador = 0; contador < temposEtapas.length; contador++) {
 
-            temposEtapas[contador] = TEMPO;
+            System.out.print("Insira o tempo da etapa " + (contador + 1) + " em minutos: ");
+
+            temposEtapas[contador] = leitor.nextInt();
+            tempoTotal += temposEtapas[contador];
 
         }
 
-        for (int contador = 0; contador < temposEtapas.length; contador++) {
-
-            tempoMaximo += temposEtapas[contador];
-
-        }
-
-        System.out.println("O tempo total de produção é " + tempoMaximo + " minutos");
+        System.out.println("O tempo total de produção é " + tempoTotal + " minutos.");
 
     }
 
@@ -597,33 +586,25 @@ public class ListaVetores_Otaviano {
 
     private static void Algoritmo19(Scanner leitor) {
 
-        int[] produtos = new int[50];
-        int produto = 0;
+        int[] codigosProdutos = {2, 3, 7, 15, 5, 4, 19, 5, 8};
 
-        Random aleatorio = new Random();
+        System.out.print("Digite o código do produto: ");
+        int codigoDigitado = leitor.nextInt();
 
-        boolean sistema = false;
+        boolean encontrado = false;
 
-        for (int contador = 0; contador < produtos.length; contador++) {
+        for (int indice = 0; indice < codigosProdutos.length; indice++) {
 
-            produtos[contador] = aleatorio.nextInt(50) + 1;
+            if (codigosProdutos[indice] == codigoDigitado) {
 
-        }
-
-        System.out.print("Insira o código do produto: ");
-        produto = leitor.nextInt();
-
-        for (int contador = 0; contador < produtos.length; contador++) {
-
-            if (produto == produtos[contador]) {
-
-                sistema = true;
+                encontrado = true;
+                break;
 
             }
 
         }
 
-        if (sistema) {
+        if (encontrado) {
 
             System.out.println("O produto existe no sistema.");
 
